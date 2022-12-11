@@ -2,6 +2,17 @@
 
 本项目从 [strongSwan](https://github.com/strongswan/strongswan/tree/5.9.8) 项目的 5.9.8 版本克隆而来，旨在增加 SM 国米算法的支持。
 
+项目建议通过如下方式克隆（包含子模块）：
+```
+git clone --depth 20 --recurse-submodules https://github.com/leonardodalinky/strongswan-sm
+```
+
+> 如果已经克隆了不带子模块的项目，运行下列命令：
+> ```
+> git submodule init
+> git submodule update --recursive
+> ```
+
 # 原始 README 文档
 
 ## Overview ##
