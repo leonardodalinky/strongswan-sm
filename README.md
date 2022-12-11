@@ -1,5 +1,9 @@
 # strongSwan Configuration #
 
+本项目从 [strongSwan](https://github.com/strongswan/strongswan/tree/5.9.8) 项目的 5.9.8 版本克隆而来，旨在增加 SM 国米算法的支持。
+
+# 原始 README 文档
+
 ## Overview ##
 
 strongSwan is an OpenSource IPsec-based VPN solution.

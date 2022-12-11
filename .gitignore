@@ -53,3 +53,7 @@ coverage/
 /*.includes
 test-driver
 nbproject/
+
+# ides
+.idea/
+.vscode/
