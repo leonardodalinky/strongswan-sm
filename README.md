@@ -13,6 +13,8 @@ git clone --depth 20 --recurse-submodules https://github.com/leonardodalinky/str
 > git submodule update --recursive
 > ```
 
+SM 国密算法直接使用 GmSSL 库的 v3.0.0 版本，详情请见 [GmSSL](https://github.com/guanzhi/GmSSL/tree/v3.0.0) 的库说明。
+
 # 原始 README 文档
 
 ## Overview ##
