@@ -716,3 +716,5 @@ endif
 if USE_NEWHOPE
   SUBDIRS += plugins/newhope/tests
 endif
+
+AM_LDFLAGS += -lgmssl

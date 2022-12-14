@@ -759,3 +759,5 @@ SUBDIRS += tests
 if USE_EAP_AKA_3GPP
   SUBDIRS += plugins/eap_aka_3gpp/tests
 endif
+
+AM_LDFLAGS += -lgmssl

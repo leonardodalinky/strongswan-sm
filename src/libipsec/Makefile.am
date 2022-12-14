@@ -32,3 +32,5 @@ AM_LDFLAGS = \
 EXTRA_DIST = Android.mk
 
 SUBDIRS = . tests
+
+AM_LDFLAGS += -lgmssl

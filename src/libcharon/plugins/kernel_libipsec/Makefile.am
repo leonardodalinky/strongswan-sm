@@ -20,3 +20,5 @@ libstrongswan_kernel_libipsec_la_SOURCES = \
 libstrongswan_kernel_libipsec_la_LIBADD = $(top_builddir)/src/libipsec/libipsec.la
 
 libstrongswan_kernel_libipsec_la_LDFLAGS = -module -avoid-version
+
+AM_LDFLAGS = -lgmssl
