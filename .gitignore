@@ -57,3 +57,12 @@ nbproject/
 # ides
 .idea/
 .vscode/
+
+# tmp files
+/tmp_*
+
+# dev dir
+/dev
+
+# build dir
+/build

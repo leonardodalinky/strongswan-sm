@@ -1,6 +1,6 @@
 # strongSwan Configuration #
 
-本项目从 [strongSwan](https://github.com/strongswan/strongswan/tree/5.9.8) 项目的 5.9.8 版本克隆而来，旨在增加 SM 国米算法的支持。
+本项目从 [strongSwan](https://github.com/strongswan/strongswan/tree/5.9.8) 项目的 5.9.8 版本克隆而来，旨在增加 SM 国密算法的支持。
 
 项目建议通过如下方式克隆（包含子模块）：
 ```
@@ -14,6 +14,27 @@ git clone --depth 20 --recurse-submodules https://github.com/leonardodalinky/str
 > ```
 
 SM 国密算法直接使用 GmSSL 库的 v3.0.0 版本，详情请见 [GmSSL](https://github.com/guanzhi/GmSSL/tree/v3.0.0) 的库说明。
+
+## 开发构建方式
+
+本次国密算法的开发构建方式，分为以下几步：
+1. 运行 `autogen.sh` 文件，配置国密算法的开发环境
+2. 运行 `dev_configure.sh`，配置国密算法的编译环境
+   * 此脚本为 `configure` 的包装，指定各种输出目录，**建议各位亲自查看一下**
+   * **之后需要增加国密算法的编译选项，需要有人处理这个玩意**
+3. 使用 `make -j4` 和 `make install`，将编译后的程序安装到 `dev` 文件夹中
+
+## 使用方式
+
+首先切换至 `dev` 文件夹中。
+
+Step 1: 首先，运行 ipsec 服务
+```bash
+sudo sbin/ipsec start
+```
+使用 `--help` 选项可以查看帮助。
+
+Step 2: TODO，使用 `sbin/swanctl` 吧，但我还在研究这玩意
 
 # 原始 README 文档
 
