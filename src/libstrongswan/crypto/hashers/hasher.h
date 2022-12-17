@@ -52,7 +52,9 @@ enum hash_algorithm_t {
 	HASH_SHA3_224		= 1029,
 	HASH_SHA3_256		= 1030,
 	HASH_SHA3_384		= 1031,
-	HASH_SHA3_512		= 1032
+	HASH_SHA3_512		= 1032,
+	/* SM改造 */
+	HASH_SM3			= 2000,
 };
 
 #define HASH_SIZE_MD2		16
@@ -63,6 +65,8 @@ enum hash_algorithm_t {
 #define HASH_SIZE_SHA256	32
 #define HASH_SIZE_SHA384	48
 #define HASH_SIZE_SHA512	64
+/* SM改造 */
+#define HASH_SIZE_SM3		32
 
 /**
  * enum names for hash_algorithm_t.

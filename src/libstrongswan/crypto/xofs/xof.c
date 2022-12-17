@@ -55,6 +55,8 @@ ext_out_function_t xof_mgf1_from_hash_algorithm(hash_algorithm_t alg)
 		case HASH_SHA3_256:
 		case HASH_SHA3_384:
 		case HASH_SHA3_512:
+		case HASH_SM3:
+			/* SM改造：姑且认为 SM3 不用实现 mask generation function */
 			break;
 	}
 	return XOF_UNDEFINED;

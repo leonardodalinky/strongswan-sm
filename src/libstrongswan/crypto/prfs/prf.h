@@ -63,6 +63,8 @@ enum pseudo_random_function_t {
 	PRF_KEYED_SHA1 = 1027,
 	/** draft-kanno-ipsecme-camellia-xcbc, not yet assigned by IANA */
 	PRF_CAMELLIA128_XCBC = 1028,
+	/* SM改造 */
+	PRF_HMAC_SM3 = 2000,
 };
 
 /**

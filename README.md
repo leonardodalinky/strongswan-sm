@@ -56,6 +56,10 @@ sudo sbin/ipsec start
 
 **Step 2**: TODO，使用 `sbin/swanctl` 吧，但我还在研究这玩意
 
+## GmSSL 使用指南
+
+参考 [GmSSL 官方网站](http://gmssl.org/docs/docindex.html).
+
 # 原始 README 文档
 
 ## Overview ##

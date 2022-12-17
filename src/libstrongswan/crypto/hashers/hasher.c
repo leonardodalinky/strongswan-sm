@@ -107,6 +107,9 @@ size_t hasher_hash_size(hash_algorithm_t alg)
 			return HASH_SIZE_SHA384;
 		case HASH_SHA3_512:
 			return HASH_SIZE_SHA512;
+		case HASH_SM3:
+			/** SM改造 */
+			return HASH_SIZE_SM3;
 		case HASH_IDENTITY:
 		case HASH_UNKNOWN:
 			break;
@@ -157,6 +160,9 @@ hash_algorithm_t hasher_algorithm_from_oid(int oid)
 		case OID_ED25519:
 		case OID_ED448:
 			return HASH_IDENTITY;
+		/** SM改造 */
+		case OID_SM3:
+			return HASH_SM3;
 		default:
 			return HASH_UNKNOWN;
 	}
@@ -181,6 +187,9 @@ hash_algorithm_t hasher_algorithm_from_prf(pseudo_random_function_t alg)
 			return HASH_SHA384;
 		case PRF_HMAC_SHA2_512:
 			return HASH_SHA512;
+		case PRF_HMAC_SM3:
+			/** SM改造 */
+			return HASH_SM3;
 		case PRF_HMAC_TIGER:
 		case PRF_AES128_XCBC:
 		case PRF_AES128_CMAC:
@@ -220,6 +229,8 @@ hash_algorithm_t hasher_algorithm_from_integrity(integrity_algorithm_t alg,
 				break;
 			case AUTH_HMAC_SHA2_256_256:
 			case AUTH_HMAC_SHA2_512_256:
+			case AUTH_HMAC_SM3:
+				/** SM改造 */
 				*length = 32;
 				break;
 			case AUTH_HMAC_SHA2_384_384:
@@ -252,6 +263,9 @@ hash_algorithm_t hasher_algorithm_from_integrity(integrity_algorithm_t alg,
 		case AUTH_HMAC_SHA2_512_256:
 		case AUTH_HMAC_SHA2_512_512:
 			return HASH_SHA512;
+		case AUTH_HMAC_SM3:
+			/** SM改造 */
+			return HASH_SM3;
 		case AUTH_AES_CMAC_96:
 		case AUTH_AES_128_GMAC:
 		case AUTH_AES_192_GMAC:
@@ -331,6 +345,8 @@ integrity_algorithm_t hasher_algorithm_to_integrity(hash_algorithm_t alg,
 		case HASH_SHA3_384:
 		case HASH_SHA3_512:
 		case HASH_IDENTITY:
+		case HASH_SM3:
+			/** SM改造 */
 		case HASH_UNKNOWN:
 			break;
 	}
@@ -345,6 +361,8 @@ bool hasher_algorithm_for_ikev2(hash_algorithm_t alg)
 	switch (alg)
 	{
 		case HASH_IDENTITY:
+		case HASH_SM3:
+			/** SM改造 */
 		case HASH_SHA256:
 		case HASH_SHA384:
 		case HASH_SHA512:
@@ -405,6 +423,9 @@ int hasher_algorithm_to_oid(hash_algorithm_t alg)
 			break;
 		case HASH_SHA3_512:
 			oid = OID_SHA3_512;
+			break;
+		case HASH_SM3:
+			oid = OID_SM3;
 			break;
 		default:
 			oid = OID_UNKNOWN;

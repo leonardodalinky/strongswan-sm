@@ -1126,6 +1126,21 @@ static bool proposal_add_supported_ike(private_proposal_t *this, bool aead)
 		enumerator->destroy(enumerator);
 	}
 
+	/* SM改造：Pre-Round 1 add SM3 */
+	enumerator = lib->crypto->create_prf_enumerator(lib->crypto);
+	while (enumerator->enumerate(enumerator, &prf, &plugin_name))
+	{
+		switch (prf)
+		{
+			case PRF_HMAC_SM3:
+				add_algorithm(this, PSEUDO_RANDOM_FUNCTION, prf, 0);
+				break;
+			default:
+				break;
+		}
+	}
+	enumerator->destroy(enumerator);
+
 	/* Round 1 adds algorithms with at least 128 bit security strength */
 	enumerator = lib->crypto->create_prf_enumerator(lib->crypto);
 	while (enumerator->enumerate(enumerator, &prf, &plugin_name))
@@ -1135,6 +1150,7 @@ static bool proposal_add_supported_ike(private_proposal_t *this, bool aead)
 			case PRF_HMAC_SHA2_256:
 			case PRF_HMAC_SHA2_384:
 			case PRF_HMAC_SHA2_512:
+			case PRF_HMAC_SM3:
 				add_algorithm(this, PSEUDO_RANDOM_FUNCTION, prf, 0);
 				break;
 			default:
@@ -1278,6 +1294,8 @@ proposal_t *proposal_create_default(protocol_id_t protocol)
 			add_algorithm(this, ENCRYPTION_ALGORITHM, ENCR_AES_CBC,          128);
 			add_algorithm(this, ENCRYPTION_ALGORITHM, ENCR_AES_CBC,          192);
 			add_algorithm(this, ENCRYPTION_ALGORITHM, ENCR_AES_CBC,          256);
+			/* SM改造 */
+			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SM3,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_256_128,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_384_192,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_512_256,  0);
@@ -1286,6 +1304,8 @@ proposal_t *proposal_create_default(protocol_id_t protocol)
 			add_algorithm(this, EXTENDED_SEQUENCE_NUMBERS, NO_EXT_SEQ_NUMBERS, 0);
 			break;
 		case PROTO_AH:
+			/* SM改造 */
+			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SM3,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_256_128,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_384_192,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_512_256,  0);
