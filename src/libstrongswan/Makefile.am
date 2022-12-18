@@ -346,6 +346,13 @@ if MONOLITHIC
 endif
 endif
 
+if USE_SM3
+  SUBDIRS += plugins/sm3
+if MONOLITHIC
+  libstrongswan_la_LIBADD += plugins/sm3/libstrongswan-sm3.la
+endif
+endif
+
 if USE_GMP
   SUBDIRS += plugins/gmp
 if MONOLITHIC
