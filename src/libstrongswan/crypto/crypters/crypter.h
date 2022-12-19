@@ -67,6 +67,8 @@ enum encryption_algorithm_t {
 	ENCR_RC2_CBC =          1028,
 	ENCR_AES_ECB =			1029,
 	ENCR_AES_CFB =			1030,
+	/*SM implementation*/
+	ENCR_SM4 =              1031,
 };
 
 #define DES_BLOCK_SIZE			 8
