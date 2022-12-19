@@ -347,6 +347,7 @@
     0x03                     "secsig"
       0x02                   "algorithms"
         0x07                 "des-cbc"					OID_DES_CBC
+        0x08                 "sm4"            OID_SM4
         0x1A                 "sha-1"					OID_SHA1
         0x1D                 "sha-1WithRSASignature"	OID_SHA1_WITH_RSA_OIW
   0x24                       "TeleTrusT"

@@ -41,14 +41,15 @@ ENUM_NEXT(encryption_algorithm_names, ENCR_AES_GCM_ICV8, ENCR_NULL_AUTH_AES_GMAC
 	"AES_GCM_12",
 	"AES_GCM_16",
 	"NULL_AES_GMAC");
-ENUM_NEXT(encryption_algorithm_names, ENCR_CAMELLIA_CBC, ENCR_CHACHA20_POLY1305, ENCR_NULL_AUTH_AES_GMAC,
+ENUM_NEXT(encryption_algorithm_names, ENCR_CAMELLIA_CBC, ENCR_SM4, ENCR_NULL_AUTH_AES_GMAC,
 	"CAMELLIA_CBC",
 	"CAMELLIA_CTR",
 	"CAMELLIA_CCM_8",
 	"CAMELLIA_CCM_12",
 	"CAMELLIA_CCM_16",
-	"CHACHA20_POLY1305");
-ENUM_NEXT(encryption_algorithm_names, ENCR_UNDEFINED, ENCR_AES_CFB, ENCR_CHACHA20_POLY1305,
+	"CHACHA20_POLY1305",
+	"SM4");
+ENUM_NEXT(encryption_algorithm_names, ENCR_UNDEFINED, ENCR_AES_CFB, ENCR_SM4,
 	"UNDEFINED",
 	"DES_ECB",
 	"SERPENT_CBC",
@@ -104,6 +105,10 @@ encryption_algorithm_t encryption_algorithm_from_oid(int oid, size_t *key_size)
 			alg = ENCR_BLOWFISH;
 			alg_key_size = 0;
 			break;
+		case OID_SM4:
+			alg = ENCR_SM4;
+			alg_key_size = 128;
+			/** SM改造*/
 		default:
 			alg = ENCR_UNDEFINED;
 			alg_key_size = 0;
@@ -165,6 +170,9 @@ int encryption_algorithm_to_oid(encryption_algorithm_t alg, size_t key_size)
 		case ENCR_BLOWFISH:
 			oid = OID_BLOWFISH_CBC;
 			break;
+		case ENCR_SM4:
+			oid = OID_SM4;
+			/** SM改造*/
 		default:
 			oid = OID_UNKNOWN;
 	}

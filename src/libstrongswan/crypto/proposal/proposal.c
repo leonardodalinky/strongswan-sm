@@ -1059,6 +1059,9 @@ static bool proposal_add_supported_ike(private_proposal_t *this, bool aead)
 					add_algorithm(this, ENCRYPTION_ALGORITHM, encryption, 192);
 					add_algorithm(this, ENCRYPTION_ALGORITHM, encryption, 256);
 					break;
+				case ENCR_SM4:
+					add_algorithm(this,ENCRYPTION_ALGORITHM,encryption,128);
+					/** SM改造*/
 				default:
 					break;
 			}

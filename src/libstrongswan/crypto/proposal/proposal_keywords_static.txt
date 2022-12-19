@@ -33,6 +33,7 @@ struct proposal_token {
 null,             ENCRYPTION_ALGORITHM, ENCR_NULL,                 0
 des,              ENCRYPTION_ALGORITHM, ENCR_DES,                  0
 3des,             ENCRYPTION_ALGORITHM, ENCR_3DES,                 0
+sm4,			  ENCRYPTION_ALGORITHM, ENCR_SM4,				 128
 aes,              ENCRYPTION_ALGORITHM, ENCR_AES_CBC,            128
 aes128,           ENCRYPTION_ALGORITHM, ENCR_AES_CBC,            128
 aes192,           ENCRYPTION_ALGORITHM, ENCR_AES_CBC,            192

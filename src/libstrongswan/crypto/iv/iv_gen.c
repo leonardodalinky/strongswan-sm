@@ -39,6 +39,8 @@ iv_gen_t* iv_gen_create_for_alg(encryption_algorithm_t alg)
 		case ENCR_SERPENT_CBC:
 		case ENCR_TWOFISH_CBC:
 		case ENCR_RC2_CBC:
+		case ENCR_SM4:
+			/** SM改造*/
 		case ENCR_AES_CFB:
 			return iv_gen_rand_create();
 		case ENCR_AES_CTR:
