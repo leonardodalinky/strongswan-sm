@@ -498,6 +498,14 @@ int hasher_signature_algorithm_to_oid(hash_algorithm_t alg, key_type_t key)
 				default:
 					return OID_UNKNOWN;
 			}
+		case KEY_SM2:
+			switch (alg)
+			{
+				case HASH_SM3:
+					return OID_SM3;
+				default:
+					return OID_UNKNOWN;
+			}
 		case KEY_BLISS:
 			switch (alg)
 			{
@@ -576,6 +584,8 @@ hash_algorithm_t hasher_from_signature_scheme(signature_scheme_t scheme,
 		case SIGN_RSA_EMSA_PKCS1_SHA3_512:
 		case SIGN_BLISS_WITH_SHA3_512:
 			return HASH_SHA3_512;
+		case SIGN_SM2_WITH_SM3:
+			return HASH_SM3;
 	}
 	return HASH_UNKNOWN;
 }

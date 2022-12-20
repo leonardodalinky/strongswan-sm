@@ -64,6 +64,7 @@ enum key_exchange_method_t {
 	ECP_512_BP    = 30,
 	CURVE_25519   = 31,
 	CURVE_448     = 32,
+	CURVE_SM2     = 33,
 	/** insecure NULL diffie hellman group for testing, in PRIVATE USE */
 	MODP_NULL = 1024,
 	/** MODP group with custom generator/prime */
