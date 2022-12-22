@@ -297,6 +297,13 @@ if MONOLITHIC
 endif
 endif
 
+if USE_SM4
+  SUBDIRS += plugins/sm4
+if MONOLITHIC
+  libstrongswan_la_LIBADD += plugins/sm4/libstrongswan-sm4.la
+endif
+endif
+
 if USE_BLOWFISH
   SUBDIRS += plugins/blowfish
 if MONOLITHIC
@@ -630,6 +637,13 @@ if USE_PKCS11
   SUBDIRS += plugins/pkcs11
 if MONOLITHIC
   libstrongswan_la_LIBADD += plugins/pkcs11/libstrongswan-pkcs11.la
+endif
+endif
+
+if USE_SM2
+  SUBDIRS += plugins/sm2
+if MONOLITHIC
+  libstrongswan_la_LIBADD += plugins/sm2/libstrongswan-sm2.la
 endif
 endif
 

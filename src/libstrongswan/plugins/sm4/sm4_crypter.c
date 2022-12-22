@@ -38,7 +38,7 @@ METHOD(crypter_t, decrypt, bool,
 	}
 	memcpy(&ivb, iv.ptr, sizeof(sm4_cblock));
     size_t nblocks = (data.len % SM4_BLOCK_SIZE == 0) ? data.len/SM4_BLOCK_SIZE : data.len/SM4_BLOCK_SIZE + 1;     /*Calculate the num of blocks by myself, and input it to the function*/
-	sm4_cbc_encrypt(&this->ctx_de.sm4_key, &ivb, (sm4_cblock*)(data.ptr), nblocks, (sm4_cblock*)out);
+	sm4_cbc_encrypt(&this->ctx_de.sm4_key, (uint8_t*)&ivb, data.ptr, nblocks, out);
 	return TRUE;
 }
 
@@ -56,7 +56,7 @@ METHOD(crypter_t, encrypt, bool,
 	}
 	memcpy(&ivb, iv.ptr, sizeof(sm4_cblock));
     size_t nblocks = (data.len % SM4_BLOCK_SIZE == 0) ? data.len/SM4_BLOCK_SIZE : data.len/SM4_BLOCK_SIZE + 1; 
-	sm4_cbc_decrypt(&this->ctx_en.sm4_key, &ivb, (sm4_cblock*)(data.ptr), nblocks, (sm4_cblock*)out);
+	sm4_cbc_decrypt(&this->ctx_en.sm4_key, (uint8_t*)&ivb, data.ptr, nblocks, out);
 	return TRUE;
 }
 

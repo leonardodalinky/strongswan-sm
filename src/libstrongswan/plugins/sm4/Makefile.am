@@ -12,7 +12,7 @@ else
 plugin_LTLIBRARIES = libstrongswan-sm4.la
 endif
 
-libstrongswan_des_la_SOURCES = \
+libstrongswan_sm4_la_SOURCES = \
 	sm4_plugin.h sm4_plugin.c sm4_crypter.c sm4_crypter.h
 
-libstrongswan_des_la_LDFLAGS = -module -avoid-version
+libstrongswan_sm4_la_LDFLAGS = -module -avoid-version

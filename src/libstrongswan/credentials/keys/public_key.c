@@ -32,7 +32,7 @@ ENUM(key_type_names, KEY_ANY, KEY_BLISS,
 	"BLISS"
 );
 
-ENUM(signature_scheme_names, SIGN_UNKNOWN, SIGN_BLISS_WITH_SHA3_512,
+ENUM(signature_scheme_names, SIGN_UNKNOWN, SIGN_SM2_WITH_SM3,
 	"UNKNOWN",
 	"RSA_EMSA_PKCS1_NULL",
 	"RSA_EMSA_PKCS1_MD5",
