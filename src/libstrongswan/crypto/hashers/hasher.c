@@ -38,7 +38,10 @@ ENUM_NEXT(hash_algorithm_names, HASH_UNKNOWN, HASH_SHA3_512, HASH_IDENTITY,
 	"HASH_SHA3_256",
 	"HASH_SHA3_384",
 	"HASH_SHA3_512");
-ENUM_END(hash_algorithm_names, HASH_SHA3_512);
+ENUM_NEXT(hash_algorithm_names, HASH_SM3, HASH_SM3, HASH_SHA3_512,
+	"HASH_SM3",
+);
+ENUM_END(hash_algorithm_names, HASH_SM3);
 
 ENUM_BEGIN(hash_algorithm_short_names, HASH_SHA1, HASH_IDENTITY,
 	"sha1",
@@ -56,7 +59,10 @@ ENUM_NEXT(hash_algorithm_short_names, HASH_UNKNOWN, HASH_SHA3_512, HASH_IDENTITY
 	"sha3_256",
 	"sha3_384",
 	"sha3_512");
-ENUM_END(hash_algorithm_short_names, HASH_SHA3_512);
+ENUM_NEXT(hash_algorithm_short_names, HASH_SM3, HASH_SM3, HASH_SHA3_512,
+	"hash_sm3",
+);
+ENUM_END(hash_algorithm_short_names, HASH_SM3);
 
 ENUM_BEGIN(hash_algorithm_short_names_upper, HASH_SHA1, HASH_IDENTITY,
 	"SHA1",
@@ -74,7 +80,10 @@ ENUM_NEXT(hash_algorithm_short_names_upper, HASH_UNKNOWN, HASH_SHA3_512, HASH_ID
 	"SHA3_256",
 	"SHA3_384",
 	"SHA3_512");
-ENUM_END(hash_algorithm_short_names_upper, HASH_SHA3_512);
+ENUM_NEXT(hash_algorithm_short_names_upper, HASH_SM3, HASH_SM3, HASH_SHA3_512,
+	"hash_sm3",
+);
+ENUM_END(hash_algorithm_short_names_upper, HASH_SM3);
 
 /*
  * Described in header

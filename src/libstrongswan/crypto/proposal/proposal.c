@@ -375,7 +375,8 @@ static bool select_algo(private_proposal_t *this, proposal_t *other,
 							 "match, but peer implementation is unknown, "
 							 "skipped");
 					}
-					continue;
+					// SM改造：不跳过私有算法
+					// continue;
 				}
 				*alg = alg1;
 				*ks = ks1;
