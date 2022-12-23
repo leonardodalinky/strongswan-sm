@@ -373,10 +373,9 @@ static bool select_algo(private_proposal_t *this, proposal_t *other,
 					{
 						DBG1(DBG_CFG, "an algorithm from private space would "
 							 "match, but peer implementation is unknown, "
-							 "skipped, but dont skip due to sm change");
+							 "skipped");
 					}
-					// SM改造：不跳过私有算法
-					// continue;
+					continue;
 				}
 				*alg = alg1;
 				*ks = ks1;
@@ -603,8 +602,7 @@ METHOD(proposal_t, clone_, proposal_t*,
 	{
 		if (entry->alg >= 1024 && (flags & PROPOSAL_SKIP_PRIVATE))
 		{
-			// SM改造：别跳过私有算法
-			// continue;
+			continue;
 		}
 		if (entry->type == KEY_EXCHANGE_METHOD && (flags & PROPOSAL_SKIP_KE))
 		{
