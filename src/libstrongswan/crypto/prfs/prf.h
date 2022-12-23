@@ -53,6 +53,8 @@ enum pseudo_random_function_t {
 	PRF_HMAC_SHA2_512 = 7,
 	/** RFC4615 */
 	PRF_AES128_CMAC = 8,
+	/* SM改造 */
+	PRF_HMAC_SM3 = 9,
 	/** FIPS 186-2-change1 */
 	PRF_FIPS_SHA1_160 = 1025,
 	/** FIPS 186-2-change1, uses fixed output size of 160bit */
@@ -63,8 +65,6 @@ enum pseudo_random_function_t {
 	PRF_KEYED_SHA1 = 1027,
 	/** draft-kanno-ipsecme-camellia-xcbc, not yet assigned by IANA */
 	PRF_CAMELLIA128_XCBC = 1028,
-	/* SM改造 */
-	PRF_HMAC_SM3 = 2000,
 };
 
 /**

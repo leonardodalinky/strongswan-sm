@@ -27,7 +27,7 @@ ENUM_BEGIN(pseudo_random_function_names, PRF_UNDEFINED, PRF_CAMELLIA128_XCBC,
 	"PRF_KEYED_SHA1",
 	"PRF_CAMELLIA128_XCBC");
 /* SM改造 */
-ENUM_NEXT(pseudo_random_function_names, PRF_HMAC_MD5, PRF_AES128_CMAC, PRF_CAMELLIA128_XCBC,
+ENUM_NEXT(pseudo_random_function_names, PRF_HMAC_MD5, PRF_HMAC_SM3, PRF_CAMELLIA128_XCBC,
 	"PRF_HMAC_MD5",
 	"PRF_HMAC_SHA1",
 	"PRF_HMAC_TIGER",
@@ -35,10 +35,8 @@ ENUM_NEXT(pseudo_random_function_names, PRF_HMAC_MD5, PRF_AES128_CMAC, PRF_CAMEL
 	"PRF_HMAC_SHA2_256",
 	"PRF_HMAC_SHA2_384",
 	"PRF_HMAC_SHA2_512",
-	"PRF_AES128_CMAC");
-ENUM_NEXT(pseudo_random_function_names, PRF_HMAC_SM3, PRF_HMAC_SM3, PRF_AES128_CMAC,
-	"PRF_HMAC_SM3",
-);
+	"PRF_AES128_CMAC",
+	"PRF_HMAC_SM3");
 ENUM_END(pseudo_random_function_names, PRF_HMAC_SM3);
 
 /*

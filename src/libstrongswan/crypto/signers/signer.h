@@ -64,6 +64,8 @@ enum integrity_algorithm_t {
 	AUTH_HMAC_SHA2_384_192 = 13,
 	/** RFC4868 */
 	AUTH_HMAC_SHA2_512_256 = 14,
+	/** SM改造: 增加SM3算法中的HMAC算法 */
+	AUTH_HMAC_SM3 = 15,
 	/** private use */
 	AUTH_HMAC_SHA1_128 = 1025,
 	/** SHA256 96 bit truncation variant, supported by Linux kernels */
@@ -76,8 +78,6 @@ enum integrity_algorithm_t {
 	AUTH_HMAC_SHA2_512_512 = 1029,
 	/** draft-kanno-ipsecme-camellia-xcbc, not yet assigned by IANA */
 	AUTH_CAMELLIA_XCBC_96 = 1030,
-	/** SM改造: 增加SM3算法中的HMAC算法 */
-	AUTH_HMAC_SM3 = 2000,
 };
 
 /**
