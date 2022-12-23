@@ -632,6 +632,7 @@ static const struct {
 	{AUTH_HMAC_SHA2_256_128,			PRF_HMAC_SHA2_256				},
 	{AUTH_HMAC_SHA2_384_192,			PRF_HMAC_SHA2_384				},
 	{AUTH_HMAC_SHA2_512_256,			PRF_HMAC_SHA2_512				},
+	{AUTH_HMAC_SM3,			            PRF_HMAC_SM3				    },
 	{AUTH_HMAC_MD5_96,					PRF_HMAC_MD5					},
 	{AUTH_HMAC_MD5_128,					PRF_HMAC_MD5					},
 	{AUTH_AES_XCBC_96,					PRF_AES128_XCBC					},
@@ -1100,6 +1101,7 @@ static bool proposal_add_supported_ike(private_proposal_t *this, bool aead)
 				case AUTH_HMAC_SHA2_256_128:
 				case AUTH_HMAC_SHA2_384_192:
 				case AUTH_HMAC_SHA2_512_256:
+				case AUTH_HMAC_SM3:
 					add_algorithm(this, INTEGRITY_ALGORITHM, integrity, 0);
 					break;
 				default:
@@ -1153,9 +1155,6 @@ static bool proposal_add_supported_ike(private_proposal_t *this, bool aead)
 			case PRF_HMAC_SHA2_256:
 			case PRF_HMAC_SHA2_384:
 			case PRF_HMAC_SHA2_512:
-			case PRF_HMAC_SM3:
-				add_algorithm(this, PSEUDO_RANDOM_FUNCTION, prf, 0);
-				break;
 			default:
 				break;
 		}
@@ -1298,7 +1297,7 @@ proposal_t *proposal_create_default(protocol_id_t protocol)
 			add_algorithm(this, ENCRYPTION_ALGORITHM, ENCR_AES_CBC,          192);
 			add_algorithm(this, ENCRYPTION_ALGORITHM, ENCR_AES_CBC,          256);
 			/* SM改造 */
-			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SM3,  0);
+			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SM3,           0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_256_128,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_384_192,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_512_256,  0);
@@ -1308,7 +1307,7 @@ proposal_t *proposal_create_default(protocol_id_t protocol)
 			break;
 		case PROTO_AH:
 			/* SM改造 */
-			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SM3,  0);
+			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SM3,           0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_256_128,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_384_192,  0);
 			add_algorithm(this, INTEGRITY_ALGORITHM,  AUTH_HMAC_SHA2_512_256,  0);
@@ -1423,8 +1422,8 @@ proposal_t *proposal_select(linked_list_t *configured, linked_list_t *supplied,
 			selected = proposal->select(proposal, match, flags);
 			if (selected)
 			{
-				DBG2(DBG_CFG, "received proposals: %#P", supplied);
-				DBG2(DBG_CFG, "configured proposals: %#P", configured);
+				DBG1(DBG_CFG, "received proposals: %#P", supplied);
+				DBG1(DBG_CFG, "configured proposals: %#P", configured);
 				DBG1(DBG_CFG, "selected proposal: %P", selected);
 				break;
 			}
