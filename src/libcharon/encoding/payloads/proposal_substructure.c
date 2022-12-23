@@ -187,6 +187,7 @@ typedef enum {
 	IKEV1_HASH_SHA2_256 = 4,
 	IKEV1_HASH_SHA2_384 = 5,
 	IKEV1_HASH_SHA2_512 = 6,
+	IKEV1_HASH_SM3 = 7,
 } ikev1_hash_t;
 
 /**
@@ -243,6 +244,7 @@ typedef enum {
 	IKEV1_AH_AES_128_GMAC = 11,
 	IKEV1_AH_AES_192_GMAC = 12,
 	IKEV1_AH_AES_256_GMAC = 13,
+	IKEV1_AH_HMAC_SM3 = 14,
 } ikev1_ah_transid_t;
 
 /**
@@ -262,6 +264,7 @@ typedef enum {
 	IKEV1_AUTH_AES_128_GMAC = 11,
 	IKEV1_AUTH_AES_192_GMAC = 12,
 	IKEV1_AUTH_AES_256_GMAC = 13,
+	IKEV1_AUTH_SM3 = 14,
 } ikev1_auth_algo_t;
 
 /**
@@ -605,6 +608,7 @@ static algo_map_t map_integ[] = {
 	{ IKEV1_HASH_SHA2_256,		AUTH_HMAC_SHA2_256_128 },
 	{ IKEV1_HASH_SHA2_384,		AUTH_HMAC_SHA2_384_192 },
 	{ IKEV1_HASH_SHA2_512,		AUTH_HMAC_SHA2_512_256 },
+	{ IKEV1_HASH_SM3,		    AUTH_HMAC_SM3 },
 };
 
 /**
@@ -616,6 +620,7 @@ static algo_map_t map_prf[] = {
 	{ IKEV1_HASH_SHA2_256,		PRF_HMAC_SHA2_256 },
 	{ IKEV1_HASH_SHA2_384,		PRF_HMAC_SHA2_384 },
 	{ IKEV1_HASH_SHA2_512,		PRF_HMAC_SHA2_512 },
+	{ IKEV1_HASH_SM3,		    PRF_HMAC_SM3 },
 };
 
 /**
@@ -660,6 +665,7 @@ static algo_map_t map_ah[] = {
 	{ IKEV1_AH_AES_128_GMAC,	AUTH_AES_128_GMAC },
 	{ IKEV1_AH_AES_192_GMAC,	AUTH_AES_192_GMAC },
 	{ IKEV1_AH_AES_256_GMAC,	AUTH_AES_256_GMAC },
+	{ IKEV1_AH_HMAC_SM3,	    AUTH_HMAC_SM3 },
 };
 
 /**
@@ -677,6 +683,7 @@ static algo_map_t map_auth[] = {
 	{ IKEV1_AUTH_AES_128_GMAC,		AUTH_AES_128_GMAC },
 	{ IKEV1_AUTH_AES_192_GMAC,		AUTH_AES_192_GMAC },
 	{ IKEV1_AUTH_AES_256_GMAC,		AUTH_AES_256_GMAC },
+	{ IKEV1_AUTH_SM3,		        AUTH_HMAC_SM3 },
 };
 
 /**

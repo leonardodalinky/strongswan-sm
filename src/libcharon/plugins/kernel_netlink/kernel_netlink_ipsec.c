@@ -252,6 +252,7 @@ static kernel_algorithm_t integrity_algs[] = {
 /*	{AUTH_KPDK_MD5,				"***"				}, */
 	{AUTH_AES_XCBC_96,			"xcbc(aes)"			},
 	{AUTH_AES_CMAC_96,			"cmac(aes)"			},
+	{AUTH_HMAC_SM3,			    "hmac(sm3)"			},
 };
 
 /**
@@ -1835,6 +1836,7 @@ METHOD(kernel_ipsec_t, add_sa, status_t,
 				trunc_len = 160;
 				break;
 			case AUTH_HMAC_SHA2_256_256:
+			case AUTH_HMAC_SM3:
 				trunc_len = 256;
 				break;
 			case AUTH_HMAC_SHA2_384_384:
