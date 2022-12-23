@@ -164,7 +164,7 @@ hash_algorithm_t hasher_algorithm_from_oid(int oid)
 		case OID_ED448:
 			return HASH_IDENTITY;
 		/** SM改造 */
-		case OID_HMAC_SM3:
+		case OID_SM3:
 			return HASH_SM3;
 		default:
 			return HASH_UNKNOWN;
@@ -342,7 +342,6 @@ integrity_algorithm_t hasher_algorithm_to_integrity(hash_algorithm_t alg,
 			break;
 		case HASH_SM3:
 			/** SM改造 */
-			return AUTH_HMAC_SM3;
 		case HASH_MD2:
 		case HASH_MD4:
 		case HASH_SHA224:
@@ -429,7 +428,7 @@ int hasher_algorithm_to_oid(hash_algorithm_t alg)
 			oid = OID_SHA3_512;
 			break;
 		case HASH_SM3:
-			oid = OID_HMAC_SM3;
+			oid = OID_SM3;
 			break;
 		default:
 			oid = OID_UNKNOWN;
